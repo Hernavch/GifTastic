@@ -18,7 +18,7 @@ $.ajax({
 for(var i = 0; i < topics.length; i++) {
     var btn= $("<button>");
     var name= topics[i]
-    btn.addClass("giftogif");
+    btn.addClass("giftogif ");
     btn.text(name);
     $(".subwrapper").append(btn);
     btn.attr("giftogif", topics);
