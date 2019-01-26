@@ -1,34 +1,38 @@
-var topics =[
-    {name:"LA Rams"},
-    {name:"LA Rams"},
-    {name:"LA Rams"},
-    {name:"LA Rams"},
-    {name:"LA Rams"},
-    {name:"LA Rams"},
-    {name:"LA Rams"}
+var topics =["Alphabet", "Numbers", "Sesame Street"];
 
-];
-
-function displaygifs(){
-// var gifs = $(this)Attr("");
-var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=2C6OXg6eGjPol03IE8JAuBTJD5Yh9Oha&q=rams&limit=10&offset=0&rating=PG&lang=en";
+$("button").on("click", function(){
+var gifname = $(this).attr("name");
+console.log(gifname);
+// var name= topics[i].name;
+var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=2C6OXg6eGjPol03IE8JAuBTJD5Yh9Oha&q=" + gifname + "&limit=10&offset=0&rating=PG&lang=en";
 
 $.ajax({
-    url:queryURL,
+    url: queryURL,
     method:"GET"
+}).then(function(response){
+    console.log(response);
 })
 
-}
+});
+
+for(var i = 0; i < topics.length; i++) {
+    var btn= $("<button>");
+    var name= topics[i]
+    btn.addClass("giftogif");
+    btn.text(name);
+    $(".subwrapper").append(btn);
+    btn.attr("giftogif", topics);
+};
 
 function makeABtn(){
-    $(".subwrapper").empty();
+    // $(".subwrapper").empty();
     for(var i = 0; i < topics.length; i++) {
         var btn= $("<button>");
         btn.addClass("giftogif");
         btn.text(topics[i].name);
         $(".subwrapper").append(btn);
-        // btn.attr("");
-        
+        btn.attr("data-name", topics);
+        // Portion keeps repeating btns
 // 
 
     }
@@ -37,10 +41,10 @@ function makeABtn(){
 var topic = $("#topic-input").val();
 
 $("#add-btn").on("click", function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     var topic = $("#topic-input").val();
-    topics.push(topics.name);
-    console.log(topic);
+    topics.push(topic);
+    console.log(topics);
     makeABtn();
     
 });
