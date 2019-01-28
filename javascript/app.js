@@ -1,4 +1,4 @@
-var topics =["Counting", "Numbers", "Sesame Street", "Learning"];
+var topics =["WWE","Royal Rumble", "StoneCold Steve Austin", "Wrestlemania", "John Cena", "Vince McMann"];
 var topicCount = 0;
 
 
@@ -16,14 +16,16 @@ $(document.body).on("click", ".gif", function(){
         }).then(function(response){
             var result= response.data;
                         
-            for(var j=0; j< response.data.length; j++){
-                gifdiv= $("<div>");
+            for(var j=0; j < response.data.length; j++){
+               gifdiv= $("<div>");
                gifdiv.attr("class","thisgif");
                var rating= result[j].rating;
                var rtag = $("<p>").text("Rating: " + rating); 
                $(".gifdiv").append(rtag);
 
                var gifimage = $("<img>");
+               gifimage.attr("class", "img-fluid");
+               gifimage.attr("id", "img-gif");
 
                var animated= result[j].images.original.url;
                var stillimage= result[j].images.original_still.url;
@@ -42,8 +44,9 @@ $(document.body).on("click", ".gif", function(){
                    stillimage.attr("data-state", 'still');
                 //    console.log(animated);
                 //    alert("moving!");
-                   if( "data-state" === "animated"){
-                       alert("moving!");
+                   if( "data-state" === "animate"){
+                       alert("this");
+                    
                    }
                    
       

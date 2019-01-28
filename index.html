@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>GifTastify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>GifTastic</title>
 </head>
 <body>
-    <div class="container row">
-        <div class="subwrapper col-7">
+    <div class="subwrapper col-12" id="buttons">
             <div class="row button-wrapper"></div> 
             <div class="gifdiv"></div> 
-        </div>    
-            <form class="addbtn col-3" id="topicplus">
+        </div>   
+        <div class="container row">
+            <div id="btnadd">
+                <form class="addbtn col-1" id="topicplus">
                 <label for="topic-input">Add a new Button</label>
-                <input type="text" id="topic-input"><br>
-          
+                <input type="text" id="topic-input">          
                <input id="add-btn" type="submit" value="Add">
-              </form>
-        
-        
-    </div>
-    <div class="giftastic row"></div>
+            </form>
+            <div class="giftastic row col-11"></div>
+            </div>
+                
+    
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/app.js"></script>
