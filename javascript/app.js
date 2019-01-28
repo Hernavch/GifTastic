@@ -1,4 +1,4 @@
-var topics =["Alphabets", "Numbers", "Sesame Street", "kids"];
+var topics =["Counting", "Numbers", "Sesame Street", "Learning"];
 var topicCount = 0;
 
 
@@ -15,26 +15,50 @@ $(document.body).on("click", ".gif", function(){
             method:"GET"
         }).then(function(response){
             var result= response.data;
-            console.log(result);
-            
+                        
             for(var j=0; j< response.data.length; j++){
                 gifdiv= $("<div>");
-            //    var rating = results[i].rating;
+               gifdiv.attr("class","thisgif");
                var rating= result[j].rating;
                var rtag = $("<p>").text("Rating: " + rating); 
                $(".gifdiv").append(rtag);
 
-               var alphaimage = $("<img>");
-               alphaimage.attr("src", result[j].images.original.url);
-               gifdiv.append(alphaimage);
+               var gifimage = $("<img>");
+
+               var animated= result[j].images.original.url;
+               var stillimage= result[j].images.original_still.url;
+
+
+               gifimage.attr("src", result[j].images.original.url);
+               gifdiv.append(gifimage);
                gifdiv.prepend(rtag);
                $(".giftastic").prepend(gifdiv);
+
+                              
+               
+               $(document.body).on("click", ".thisgif", function(){
+                   var state = $(this).attr("data-state");
+                   animated.attr("data-state", 'animate');
+                   stillimage.attr("data-state", 'still');
+                //    console.log(animated);
+                //    alert("moving!");
+                   if( "data-state" === "animated"){
+                       alert("moving!");
+                   }
+                   
+      
+                 })
+
+               
+
+            
              }
            
         })
-
+        
         });
 
+  
 
 function makeABtn(){
     $(".subwrapper").empty();
