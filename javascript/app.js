@@ -1,4 +1,4 @@
-var topics =["Alphabet", "Numbers", "Sesame Street"];
+var topics =["Alphabets", "Numbers", "Sesame Street", "kids"];
 var topicCount = 0;
 
 
@@ -14,19 +14,26 @@ $(document.body).on("click", ".gif", function(){
             url: queryURL,
             method:"GET"
         }).then(function(response){
-            // console.log(response.data[0].analytics.onclick.url);
-            // var gify= response.data[g];
-             for(var g = 0; g < response.data; g ++){
-                 alert("come on!")
-               var gif_url= response.data[g].analytics.onclick.url;
-            //    console.log(response);
-               console.log(gif_url); 
+            var result= response.data;
+            console.log(result);
+            
+            for(var j=0; j< response.data.length; j++){
+                gifdiv= $("<div>");
+            //    var rating = results[i].rating;
+               var rating= result[j].rating;
+               var rtag = $("<p>").text("Rating: " + rating); 
+               $(".gifdiv").append(rtag);
+
+               var alphaimage = $("<img>");
+               alphaimage.attr("src", result[j].images.original.url);
+               gifdiv.append(alphaimage);
+               gifdiv.prepend(rtag);
+               $(".giftastic").prepend(gifdiv);
              }
            
         })
 
         });
-
 
 
 function makeABtn(){
@@ -36,11 +43,12 @@ function makeABtn(){
         topicCount++;
         var btn= $("<button>");
         var name= topics[i]
-        btn.attr("class", "gif "+ topics[i]);
+        btn.attr("class", "gif btn btn-primary "+ topics[i]);
         btn.attr("id", "topic-"+ topicCount);
         btn.text(name);
         $(".subwrapper").append(btn);
         btn.attr("giftogif", topics);
+       
     };
     
 
