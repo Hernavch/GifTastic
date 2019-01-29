@@ -1,4 +1,4 @@
-var topics =["Doxie","Daschund", "Weeniedog", "Doggo", "Puppy", "Dogandbaby", "Chihuahua"];
+var topics =["Doxie","Daschund", "Weeniedog", "Doggo", "Puppy", "Dogbaby", "Chihuahua"];
 var topicCount = 0;
 
 
