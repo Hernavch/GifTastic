@@ -1,4 +1,4 @@
-var topics =["WWE","Royal Rumble", "StoneCold Steve Austin", "Wrestlemania", "John Cena", "Vince McMann"];
+var topics =["Doxie","Daschund", "Weenie", "Doggo", "Puppy", "Dogandbaby", "Chihuahua"];
 var topicCount = 0;
 
 
